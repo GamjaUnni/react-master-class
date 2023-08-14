@@ -1,42 +1,18 @@
 import { useState } from "react";
+import { styled } from "styled-components";
 
 function App() {
-    const [inpval, setInpval] = useState({
-        id: "",
-        password: "",
-    });
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.currentTarget;
-        setInpval((prev) => ({ ...prev, [name]: value }));
-        // if (name === "id") setInpval(value);
-        // if (name === "password") setInpval(value);
-    };
-
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("logged in");
-    };
+    const Container = styled.div`
+        background-color: ${(props) => props.theme.bgColor};
+    `;
+    const H1 = styled.h1`
+        color: ${(props) => props.theme.textColor};
+    `;
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <input
-                    type="text"
-                    name="id"
-                    value={inpval.id}
-                    onChange={onChange}
-                    placeholder="id"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    value={inpval.password}
-                    onChange={onChange}
-                    placeholder="password"
-                />
-                <button type="submit">로그인</button>
-            </form>
-        </div>
+        <Container>
+            <H1>hello</H1>
+        </Container>
     );
 }
 
