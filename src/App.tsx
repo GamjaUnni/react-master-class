@@ -15,11 +15,30 @@ const Circle = styled(Box)`
     border-radius: 50%;
 `;
 
+// const Btn = styled.button`
+//     color: #fff;
+//     background-color: tomato;
+//     border: 0;
+//     border-radius: 15px;
+// `;
+
+const Input = styled.input.attrs({ required: true, maxLength: 10 })`
+    background-color: orange;
+`;
+
 function App() {
     return (
-        <Father>
+        <Father as="header">
             <Box bgColor="teal" />
             <Circle bgColor="whitesmoke" />
+            {/* <Btn>Login</Btn>
+
+            <Btn as="a" href="/">
+                Login
+            </Btn> */}
+
+            <Input />
+            <Input />
         </Father>
     );
 }
