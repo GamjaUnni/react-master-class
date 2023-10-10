@@ -1,7 +1,16 @@
 import styled, { keyframes } from "styled-components";
 
-const Father = styled.div`
+const Wrapper = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: ${(props) => props.theme.backgroundColor};
+`;
+
+const Title = styled.h1`
+    color: ${(props) => props.theme.textColor};
 `;
 
 const rotationAnimation = keyframes`
@@ -18,6 +27,10 @@ const rotationAnimation = keyframes`
 	}
 `;
 
+const Emoji = styled.span`
+    font-size: 36px;
+`;
+
 const Box = styled.div<{ bgColor: string }>`
     display: flex;
     align-items: center;
@@ -27,14 +40,8 @@ const Box = styled.div<{ bgColor: string }>`
     height: 200px;
     animation: ${rotationAnimation} 1s linear infinite;
 
-    span {
-        font-size: 36px;
-        &:hover {
-            font-size: 48px;
-        }
-        &:active {
-            opacity: 0;
-        }
+    ${Emoji}:hover {
+        font-size: 98px;
     }
 `;
 
@@ -56,22 +63,9 @@ const Input = styled.input.attrs({ required: true, maxLength: 10 })`
 
 function App() {
     return (
-        <>
-            <Father as="header">
-                <Box bgColor="teal">
-                    <span>😎</span>
-                </Box>
-                <Circle bgColor="whitesmoke" />
-            </Father>
-            <Btn>Login</Btn>
-
-            <Btn as="a" href="/">
-                Login
-            </Btn>
-
-            <Input />
-            <Input />
-        </>
+        <Wrapper as="header">
+            <Title>Hello</Title>
+        </Wrapper>
     );
 }
 
