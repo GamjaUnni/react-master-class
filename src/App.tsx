@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 function App() {
     const [value, setValue] = useState("");
@@ -15,8 +16,20 @@ function App() {
         console.log("hello!", value);
     };
 
+    const Container = styled.div`
+        width: 100vw;
+        height: 100vh;
+        background-color: ${(props) => props.theme.bgColor};
+        text-align: center;
+    `;
+
+    const H1 = styled.h1`
+        color: ${(props) => props.theme.textColor};
+    `;
+
     return (
-        <div>
+        <Container>
+            <H1>hello</H1>
             <form onSubmit={onSubmit}>
                 <input
                     type="text"
@@ -26,7 +39,7 @@ function App() {
                 />
                 <button>login</button>
             </form>
-        </div>
+        </Container>
     );
 }
 
