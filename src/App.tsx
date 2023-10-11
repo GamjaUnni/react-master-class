@@ -1,15 +1,31 @@
 import { useState } from "react";
-import Circle from "./Circle";
 
 function App() {
-    const [counter, setCounter] = useState<number | string>(1);
-    setCounter(2);
-    setCounter("hello world!");
+    const [value, setValue] = useState("");
+
+    const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+        const {
+            currentTarget: { value },
+        } = e;
+        setValue(value);
+    };
+
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("hello!", value);
+    };
 
     return (
         <div>
-            <Circle bgColor="teal" borderColor="#000" />
-            <Circle bgColor="tomato" text="i'm here" />
+            <form onSubmit={onSubmit}>
+                <input
+                    type="text"
+                    value={value}
+                    onChange={onChange}
+                    placeholder="user name"
+                />
+                <button>login</button>
+            </form>
         </div>
     );
 }
