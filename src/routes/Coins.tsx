@@ -86,11 +86,11 @@ function Coins() {
             <Header>
                 <Title>코인</Title>
             </Header>
-            {loading ? (
+            {isLoading ? (
                 <Loader>Loading...</Loader>
             ) : (
                 <CoinsList>
-                    {coins.map((coin) => (
+                    {data?.slice(0, 100).map((coin) => (
                         <Coin key={coin.id}>
                             <Link
                                 to={{
